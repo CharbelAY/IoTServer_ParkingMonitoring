@@ -5,8 +5,6 @@ from threading import Thread
 import time
 import db_connect as dbc 
 
-#juliana
-
 HOST_NAME = "localhost"
 PORT_NUMBER = 8000
 
