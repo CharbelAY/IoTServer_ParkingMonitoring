@@ -1,5 +1,8 @@
 # IoTServer_ParkingMonitoring
 
+CAN BE ACCESSED ON localhost:8000
+
+
 docker images to list all images
 docker container ls -a to list all containers
 docker rm container_id to remove the container then you can remove the images 
@@ -15,3 +18,4 @@ check https://pythonspeed.com/articles/docker-connection-refused/
 To build image docker build -t parking-monitor .
 
 To run the container with port mapping docker run -p 8000:8000 parking-monitor 
+
