@@ -3,7 +3,6 @@ from routes import routes
 from pathlib import Path
 import db_connect as dbc
 
-#thank you for you charboul aka ba2dounis
 
 class Server(BaseHTTPRequestHandler):
     def do_HEAD(self):

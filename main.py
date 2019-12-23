@@ -5,7 +5,7 @@ from threading import Thread
 import time
 import db_connect as dbc 
 
-HOST_NAME = "localhost"
+HOST_NAME = "0.0.0.0"
 PORT_NUMBER = 8000
 
 if __name__ == '__main__':
