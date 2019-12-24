@@ -1,7 +1,10 @@
 # IoTServer_ParkingMonitoring
 
-CAN BE ACCESSED ON localhost:8000
+CAN BE ACCESSED ON localhost:8000  locally 
+On Heroku use os.environ['PORT'] to access port 
 
+Use to stop instance heroku ps:scale web=0 --app serene-plains-42015  
+To get instance back up use heroku ps:scale web=1 --app serene-plains-42015
 
 docker images to list all images
 docker container ls -a to list all containers

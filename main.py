@@ -4,9 +4,10 @@ from server import Server
 from threading import Thread
 import time
 import db_connect as dbc 
+import os
 
 HOST_NAME = "0.0.0.0"
-PORT_NUMBER = 8000
+PORT_NUMBER = int(os.environ['PORT'])
 
 if __name__ == '__main__':
     h = HTTPServer((HOST_NAME,PORT_NUMBER),Server)
