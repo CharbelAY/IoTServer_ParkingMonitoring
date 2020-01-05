@@ -4,6 +4,7 @@ ADD routes.py /
 ADD server.py /
 ADD templates /templates
 ADD db_connect.py /
+ADD utilities.py /
 RUN pip install pathlib
 RUN pip install httpserver
 RUN pip install pymongo

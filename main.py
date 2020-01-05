@@ -7,7 +7,9 @@ import db_connect as dbc
 import os
 
 HOST_NAME = "0.0.0.0"
-PORT_NUMBER = int(os.environ['PORT'])
+PORT_NUMBER =int(os.environ['PORT'])
+#int(os.environ['PORT'])   For use on Heroku 
+#8000
 
 if __name__ == '__main__':
     h = HTTPServer((HOST_NAME,PORT_NUMBER),Server)

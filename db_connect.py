@@ -58,4 +58,6 @@ def Connect():
 def getStatus():
     a=db.find().sort("created_on",-1).limit(1)
     a=list(a)
-    print(a)
+    a=a[0]["status"]
+    a=json.dumps(a)
+    return a
