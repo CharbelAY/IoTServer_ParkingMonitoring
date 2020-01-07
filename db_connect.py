@@ -6,6 +6,7 @@ import pymongo
 
 #Global Variables
 topicsList=[]
+Maps=[]
 client = pymongo.MongoClient("mongodb+srv://User_1:IOT2019@cluseteray-0qixz.mongodb.net/test?retryWrites=true&w=majority")
 db=client.parkingStatus.status
 
@@ -14,6 +15,19 @@ def getTopics():
     cursor = topics.find({})
     for document in cursor:
           topicsList.append(document['topic'])
+
+def getMaps():
+    topics=client.parkingStatus.map
+    cursor = topics.find({})
+    for document in cursor:
+        Maps.append(document['map'])
+        
+def insert_map(status,maps):
+    zone=status[0]
+    park_number=status[2]
+    state=status[4]
+    maps[zone][park_number]=int(state)
+
 
 def Connect():
 
@@ -39,8 +53,10 @@ def Connect():
         m = json.loads(msg.payload)
         status=m['object']['payload']
         print(status)
+        insert_map(status,map1)
+        print(map1)
         date=datetime.now()
-        spots={"status":status,"created_on":date}
+        spots={"status":map1,"created_on":date}
         db.insert_one(spots)
     
     #Callbacks assignment
@@ -50,6 +66,9 @@ def Connect():
         
     # Connection start
     getTopics()
+    getMaps()
+    print(Maps)
+    map1=Maps[0]
     client.connect(MQTT_Broker, MQTT_Port, Keep_Alive_Interval)
 
     # Keep alive
